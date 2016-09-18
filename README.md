@@ -106,3 +106,11 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     Generators
     . venv/bin/activate; nosetests tests
 
+
+## 12
+
+    . venv/bin/activate; flake8 ./*.py download
+
+    echo '[flake8]' > setup.cfg
+    echo 'max-line-length=100' >> setup.cfg
+    echo 'ignore=E731' >> setup.cfg
