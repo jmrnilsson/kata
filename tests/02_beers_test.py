@@ -22,3 +22,8 @@ def test_beers_exists():
 
     assert_greater(len(actual), 100)
     assert_equal(actual[0]['Varugrupp'], u'\xd6l')
+
+
+def test_fixture_setup_for_module():
+    list(api.get_beers())
+    assert_equal(requests.get.call_count, 2)

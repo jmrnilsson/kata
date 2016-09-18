@@ -84,3 +84,12 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 ## 6 create generator
 
     nosetests tests
+
+
+## 7
+
+    python run.py
+
+## 8
+
+    assert_equal(requests.get.call_count, 2)
