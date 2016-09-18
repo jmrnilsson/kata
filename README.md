@@ -114,3 +114,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     echo '[flake8]' > setup.cfg
     echo 'max-line-length=100' >> setup.cfg
     echo 'ignore=E731' >> setup.cfg
+
+## 13
+
+    . venv/bin/activate; radon cc -a -nc -e "venv/*" ./

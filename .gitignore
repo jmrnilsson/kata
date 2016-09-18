@@ -1,5 +1,6 @@
 *.py[cod]
 *.xml
+*.json
 
 # dotenv
 .env
