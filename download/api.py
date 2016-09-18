@@ -16,9 +16,12 @@ def get_beers():
     }
     response = requests.get('http://www.systembolaget.se/api/assortment/products/xml')
     xml = ElementTree.fromstring(response.text.encode('utf-8'))
-    for article in xml.findall('artikel'):
-        if article.find('Varugrupp') is not None and u'\xd6l' in article.find('Varugrupp').text:
-            yield {
-                k: convert(article.find(k).text) for k, convert in map_.iteritems()
-                if article.find(k) is not None
-            }
+
+    return iter(sorted([
+        {
+            k: convert(article.find(k).text) for k, convert in map_.iteritems()
+            if article.find(k) is not None
+        }
+        for article in xml.findall('artikel')
+        if article.find('Varugrupp') is not None and u'\xd6l' in article.find('Varugrupp').text
+    ], key=lambda row: row['Prisinklmoms']))
