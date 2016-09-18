@@ -8,7 +8,7 @@ def get_beers():
     xml = ElementTree.fromstring(response.text)
     for article in xml.findall('artikel'):
         if article.find('Varugrupp') is not None and u'\xd6l' in article.find('Varugrupp').text:
-            return {
+            yield {
                 k: article.find(k).text for k in keys
                 if article.find(k) is not None
             }

@@ -70,12 +70,13 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     . venv/bin/activate; nosetests tests
 
 
-## 3.1
+## 4
     mv to tests
     mv to *-test.py
     mv to *-test
     export PYTHONPATH=.
 
 
+## 5 using nose.tools asserts *
 
 
