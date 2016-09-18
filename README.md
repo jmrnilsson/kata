@@ -67,5 +67,15 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 
 ## Step 3: Create tests
     api.get_beers()
-
     . venv/bin/activate; nosetests tests
+
+
+## 3.1
+    mv to tests
+    mv to *-test.py
+    mv to *-test
+    export PYTHONPATH=.
+
+
+
+
