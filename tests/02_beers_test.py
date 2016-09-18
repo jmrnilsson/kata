@@ -3,7 +3,7 @@ import requests
 from download import api
 from codecs import open
 from mock import Mock
-from nose.tools import assert_greater, assert_equal
+from nose.tools import assert_greater, assert_equal, assert_less
 
 __get = requests.get
 
@@ -31,3 +31,14 @@ def test_beers_in_asc_order_by_price():
         max_ = b['PrisPerLiter'] if b['PrisPerLiter'] > max_ else max_
         last = b
     assert_equal(max_, last['PrisPerLiter'])
+
+
+def test_ensure_lower_priced_come_first():
+    actual = list(api.get_beers())
+    yield assert_less_, actual, 'PrisPerLiter', 0, 2
+    yield assert_less_, actual, 'PrisPerLiter', 11, 200
+    yield assert_less_, actual, 'PrisPerLiter', 999, 1000
+
+
+def assert_less_(actual, key, idx, idx_2):
+    assert_less(actual[idx][key], actual[idx_2][key])

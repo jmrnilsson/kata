@@ -84,6 +84,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 ## 6 create generator
 
     nosetests tests
+    . venv/bin/activate; nosetests tests
 
 
 ## 7
@@ -100,3 +101,8 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     pip install -r requirements.text
 
     make list and dict comprehensions
+
+## 11
+    Generators
+    . venv/bin/activate; nosetests tests
+
