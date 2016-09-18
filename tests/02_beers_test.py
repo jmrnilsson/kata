@@ -28,6 +28,6 @@ def test_beers_in_asc_order_by_price():
     max_ = 0
     last = None
     for b in api.get_beers():
-        max_ = b['Prisinklmoms'] if b['Prisinklmoms'] > max_ else max_
+        max_ = b['PrisPerLiter'] if b['PrisPerLiter'] > max_ else max_
         last = b
-    assert_equal(max_, last['Prisinklmoms'])
+    assert_equal(max_, last['PrisPerLiter'])

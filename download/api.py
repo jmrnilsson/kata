@@ -12,7 +12,9 @@ def get_beers():
         'Namn': unicode,
         'Namn2': unicode,
         'Prisinklmoms': float,
-        'Alkoholhalt': lambda value: float(re.findall('[0-9\.]*', value)[0])
+        'PrisPerLiter': float,
+        'Alkoholhalt': lambda value: float(re.findall('[0-9\.]*', value)[0]),
+
     }
     response = requests.get('http://www.systembolaget.se/api/assortment/products/xml')
     xml = ElementTree.fromstring(response.text.encode('utf-8'))
@@ -24,4 +26,4 @@ def get_beers():
         }
         for article in xml.findall('artikel')
         if article.find('Varugrupp') is not None and u'\xd6l' in article.find('Varugrupp').text
-    ], key=lambda row: row['Prisinklmoms']))
+    ], key=lambda row: row['PrisPerLiter']))
