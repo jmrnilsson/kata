@@ -16,5 +16,8 @@ SHELL=bash
 5:
 	@ git checkout 58880ef10bc0551d47686d9fe2aa815c1019fa12
 
+6:
+	@ git checkout fc401e40772a53e04c3b4ea055113b82a2b5c65d
+
 master:
 	@ git checkout master

@@ -71,6 +71,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 
 
 ## 4
+
     mv to tests
     mv to *-test.py
     mv to *-test
@@ -80,3 +81,6 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 ## 5 using nose.tools asserts *
 
 
+## 6 create generator
+
+    nosetests tests
