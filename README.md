@@ -93,3 +93,8 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 ## 8
 
     assert_equal(requests.get.call_count, 2)
+
+## 10
+
+    def test_beers_in_asc_order_by_price():
+    pip install -r requirements.text
