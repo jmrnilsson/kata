@@ -48,7 +48,6 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     >>> set([1, 2, 4, 4])
     set([1, 2, 4])
     >>> set([1, 2, 4, 4])
-    set([1, 2, 4])
     >>> dict({'k': 'andy', 'k': 2})
     {'k': 2}
     >>> dict({'k': 'andy', 'k2': 2})
@@ -60,4 +59,13 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 + C# Code Contracts [https://github.com/Microsoft/CodeContracts](https://github.com/Microsoft/CodeContracts)
 + [https://www.eiffel.org](https://www.eiffel.org/doc/eiffel/ET%3A%20Design%20by%20Contract%20%28tm%29%2C%20Assertions%20and%20Exceptions)
 
+"A few techniques can help shift the numbers in our favor, including good error logging, good testing, and internal self-checks (assertions). I wanted to write briefly about how assertions can help with Python code."
+[https://wiki.python.org](https://wiki.python.org/moin/UsingAssertionsEffectively)
+
+    #!/usr/bin/env python
     python -O
+
+## Step 3: Create tests
+    api.get_beers()
+
+    . venv/bin/activate; nosetests tests
