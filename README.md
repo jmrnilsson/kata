@@ -2,7 +2,6 @@
 > A talk on testing with nosetools
 
 ## Outline
-### Setting up tests and linter with nosetools, flake8 and radon.
 
 + Discovery of tests (and how to ignore them)
 + Running (terminal and pycharm, maybe vscode)
@@ -11,12 +10,10 @@
 + Checking PEP-8 (Flake8 included in CodeClimate)
 + Cyclomatic complexity (Radon included in CodeClimate)
 
-### Also briefly covered:
+## Also briefly covered:
 + pip
 + requirements.txt
 + setup.cfg
-
----
 
 ## Step 1: Python with VirtualEnv
 http://docs.python-guide.org/en/latest/dev/virtualenvs/
@@ -31,8 +28,6 @@ http://docs.python-guide.org/en/latest/dev/virtualenvs/
     pip install -r requirements.txt
     pip list --outdated
     pip list
-
----
 
 ## Step 2: REPL, Assertions, Tests
 
@@ -55,6 +50,9 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     >>> dict({'k': 'andy', 'k2': 2})
 
 ### Assertions
+
+    assert 2 > 1
+
 + Compare with DbC
 + C# Code Contracts [https://github.com/Microsoft/CodeContracts](https://github.com/Microsoft/CodeContracts)
 + [https://www.eiffel.org](https://www.eiffel.org/doc/eiffel/ET%3A%20Design%20by%20Contract%20%28tm%29%2C%20Assertions%20and%20Exceptions)
@@ -70,7 +68,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     . venv/bin/activate; nosetests tests
 
 
-## 4
+## Step 4
 
     mv to tests
     mv to *-test.py
@@ -78,36 +76,36 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     export PYTHONPATH=.
 
 
-## 5 using nose.tools asserts *
+## Step 5 using nose.tools asserts *
 
 
-## 6 create generator
+## Step 6 create generator
 
     nosetests tests
     . venv/bin/activate; nosetests tests
 
 
-## 7
+## Step 7
 
     python run.py
 
-## 8
+## Step 8
 
     assert_equal(requests.get.call_count, 2)
 
-## 10
+## Step 10
 
     def test_beers_in_asc_order_by_price():
     pip install -r requirements.text
 
     make list and dict comprehensions
 
-## 11
+## Step 11
     Generators
     . venv/bin/activate; nosetests tests
 
 
-## 12
+## Step 12
 
     . venv/bin/activate; flake8 ./*.py download
 
@@ -115,6 +113,6 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     echo 'max-line-length=100' >> setup.cfg
     echo 'ignore=E731' >> setup.cfg
 
-## 13
+## Step 13
 
     . venv/bin/activate; radon cc -a -nc -e "venv/*" ./

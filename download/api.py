@@ -13,7 +13,7 @@ def get_beers():
         'Namn2': unicode,
         'Prisinklmoms': float,
         'PrisPerLiter': float,
-        'Alkoholhalt': lambda value: float(re.findall('[0-9\.]*', value)[0]),
+        'Alkoholhalt': lambda value: float(next(re.finditer('[0-9\.]*', value)).group(0)),
 
     }
     response = requests.get('http://www.systembolaget.se/api/assortment/products/xml')
