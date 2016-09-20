@@ -12,7 +12,7 @@ def test_by_start_date():
 
 
 def test_by_name():
-    actual = beers.find_all(predicate=lambda r: re.findall('^Carls', r['name']))
+    actual = beers.find_all(predicate=lambda r: re.findall('^Swe', r['name']))
 
     print actual
     assert_is_not_none(actual)
