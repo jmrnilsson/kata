@@ -11,7 +11,7 @@ def test_by_start_date():
     assert_greater_equal(actual['start'], '2015-04-29')
 
 
-def test_by_name():
+def test_by_custom_predicate_name():
     actual = beers.find_all(predicate=lambda r: re.findall('^Swe', r['name']))
 
     print actual

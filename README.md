@@ -201,8 +201,8 @@ justice. Although it can be done cleanly it's usually less clear than just using
 
 ## Step 20:
 
-    def test_by_name():
-        actual = beers.find_all(predicate=lambda r: re.findall('^Carls', r['name']))
+    def test_by_custom_predicate_name():
+        actual = beers.find_all(predicate=lambda r: re.findall('^Swe', r['name']))
 
         print actual
         assert_is_not_none(actual)
