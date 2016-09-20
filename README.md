@@ -178,7 +178,7 @@ justice. Although it can be done cleanly it's usually less clear than just using
         with patch.object(requests, 'get', side_effect=KeyError('some')):
             assert_raises(KeyError, beers.find_all)
 
-## Step 18: Show side_effect with lists for multiple calls
+## Step 18: Side effect with lists for multiple calls
 
     def test_side_effect_with_list():
         beers.find_all = Mock(side_effect=[0, 1, {'something': True}])
@@ -188,3 +188,5 @@ justice. Although it can be done cleanly it's usually less clear than just using
         beers.find_all()
         assert_is_not_none(beers.find_all())
         assert_equal(beers.find_all.call_count, 3)
+
+## Step 19:

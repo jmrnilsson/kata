@@ -15,8 +15,7 @@ def make_json():
         'Prisinklmoms': ['price', float],
         'PrisPerLiter': ['price_per_litre', float],
         'Alkoholhalt': ['abv', lambda value: float(re.match('[0-9\.]*', value).group(0))],
-        'Saljstart': ['start', unicode],
-        'Utg\xc3\xa5tt': ['expired', bool]
+        'Saljstart': ['start', unicode]
     }
 
     keys = map_.keys()
@@ -37,13 +36,10 @@ def make_json():
         )
 
         columns = [map_[k][0] for k in keys]
-        print columns
-
         rows = [[row.get(k) for k in columns] for row in rows]
-        print rows
 
-        with open('sb_.json', 'w', 'utf-8') as outfile:
-            return json.dump(dict(columns=columns, rows=rows), outfile, ensure_ascii=False)
+    with open('sb_.json', 'w', 'utf-8') as outfile:
+        return json.dump(dict(columns=columns, rows=rows), outfile, ensure_ascii=False)
 
 
 if __name__ == '__main__':
