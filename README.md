@@ -161,3 +161,9 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + Move to __module__
 + Rename to `setup_module` and `teardown_module`
 + `. venv/bin/activate; nosetests tests`
+
+## Step 17: Create test to demonstrate patch
+
+    def test_retry_with_patch():
+        with patch.object(requests, 'get', side_effect=KeyError('some')):
+            assert_raises(KeyError, beers.find_all)
