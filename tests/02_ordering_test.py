@@ -1,12 +1,12 @@
 import os
 from codecs import open
+import json
 
 from mock import Mock
 from nose.tools import assert_equal, assert_less
-import json
 import requests
 
-from download import api
+from download import beers
 
 __get = requests.get
 
@@ -24,14 +24,14 @@ def teardown():
 def test_beers_in_asc_order_by_price():
     max_ = 0
     last = None
-    for b in api.get_beers():
+    for b in beers.find_all():
         max_ = b['price_per_litre'] if b['price_per_litre'] > max_ else max_
         last = b
     assert_equal(max_, last['price_per_litre'])
 
 
 def test_ensure_lower_priced_come_first():
-    actual = list(api.get_beers())
+    actual = list(beers.find_all())
     yield assert_less_, actual, 'price_per_litre', 0, 2
     yield assert_less_, actual, 'price_per_litre', 11, 200
     yield assert_less_, actual, 'price_per_litre', 999, 1000

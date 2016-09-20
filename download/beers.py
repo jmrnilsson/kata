@@ -1,7 +1,7 @@
 import requests
 
 
-def get_beers():
+def find_all():
     response = requests.get('http://www.systembolaget.se/api/assortment/products/json')
     response.raise_for_status()
     json_response = response.json()

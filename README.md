@@ -119,4 +119,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 
 
 ## Step 14
-Assuming a json response is available.
++ Let's assume a json response was available in first place. Parsing xml doesn't do python much
+justice. Although it can be done cleanly it's usually less clear than just using json.
++ Show how imports are organised in __02_ordering_test.py__
++ Show the new version of __01_builtin_assert_test.py__
