@@ -165,7 +165,7 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + `. venv/bin/activate; nosetests tests`
 + http://stackoverflow.com/questions/1457104/nose-unable-to-find-tests-in-ubuntu
 + option is to run `nosetests --exe` but file mode is important so avoid
-+ When ever a script doesn't run as expected it often good to verify it's chmod
++ When ever a script doesn't run as expected it often good to verify it's file mode
 
 ## Step 16: Fix the test
 + Move to __module__
@@ -190,3 +190,11 @@ justice. Although it can be done cleanly it's usually less clear than just using
         assert_equal(beers.find_all.call_count, 3)
 
 ## Step 19:
+
+    def test_order_by_start_date():
+        actual = beers.find_by_start('2016-05-01')[0]
+
+        assert_greater(actual, '2016-04-29')
+
+
+    . venv/bin/activate; nosetests tests
