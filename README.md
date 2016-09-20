@@ -48,7 +48,16 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     >>> dict({'k': 'andy', 'k2': 2})
     {'k2': 2, 'k': 'andy'}
     >>> dict({'k': 'andy', 'k2': 2})
-
+    >>> from re import *
+    >>> findall('a', 'asdma')
+    ['a', 'a']
+    >>> findall('as', 'asdma')
+    ['as']
+    >>> import re
+    >>> re.findall('as', 'asdma')
+    import re as regexorz
+    regexorz.findall('am', 'mammma')
+    
 ### Assertions
 
     assert 2 > 1
