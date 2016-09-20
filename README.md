@@ -113,6 +113,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     Generators
     . venv/bin/activate; nosetests tests
 
+..
 
 ## Step 12
 
@@ -127,8 +128,10 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     . venv/bin/activate; radon cc -a -nc -e "venv/*" ./
 
 
-## Step 14
+## Step 14: Running tests
 + Let's assume a json response was available in first place. Parsing xml doesn't do python much
 justice. Although it can be done cleanly it's usually less clear than just using json.
 + Show how imports are organised in __02_ordering_test.py__
 + Show the new version of __01_builtin_assert_test.py__
++ Show how to add a new Test Configuration. Press plus-sign and check all in folder and add
+--nocapture
