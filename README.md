@@ -144,7 +144,7 @@ justice. Although it can be done cleanly it's usually less clear than just using
     [nosetests]
     verbosity=2
 + Evaluate the output and consider the rewriting the test generator
-+ git checkout 3c54ff12b0624f564c57fa1c4cbffd2d53f4199c
++ git checkout c84a5b560661b979be35e2d8b4a1647305089b82
 
 ## Step 15: Evaluate the output
 + Show the updated test. New test generator shows which values that are compared.
@@ -154,4 +154,10 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + Amend this with `chmod -x tests/01_builtin_assert_tests.py`
 + `. venv/bin/activate; nosetests tests`
 + http://stackoverflow.com/questions/1457104/nose-unable-to-find-tests-in-ubuntu
++ option is to run `nosetests --exe` but file mode is important so avoid
 + When ever a script doesn't run as expected it often good to verify it's chmod
+
+## Step 16: Fix the test
++ Move to __module__
++ Rename to `setup_module` and `teardown_module`
++ `. venv/bin/activate; nosetests tests`
