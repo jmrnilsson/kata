@@ -140,4 +140,8 @@ justice. Although it can be done cleanly it's usually less clear than just using
 
     . venv/bin/activate; nosetests tests
 
-+
++ Add the following to setup.cfg
+    [nosetests]
+    verbosity=2
+
+## Step 15: Evaluate the output.
