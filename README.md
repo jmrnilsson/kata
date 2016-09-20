@@ -198,3 +198,11 @@ justice. Although it can be done cleanly it's usually less clear than just using
 
 
     . venv/bin/activate; nosetests tests
+
+## Step 20:
+
+    def test_by_name():
+        actual = beers.find_all(predicate=lambda r: re.findall('^Carls', r['name']))
+
+        print actual
+        assert_is_not_none(actual)
