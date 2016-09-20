@@ -1,12 +1,12 @@
 # talknosetools
-> A talk on testing with nosetools
+__-A talk on testing with nosetools and mock__
 
 ## Outline
 
 + Discovery of tests (and how to ignore them)
-+ Running (terminal and pycharm, maybe vscode)
++ Running (terminal and PyCharm)
 + Assign setup, teardown (different ways)
-+ Using nosetools' asserts and using built-in
++ Using nosetools' asserts and built-in asserts
 + Checking PEP-8 (Flake8 included in CodeClimate)
 + Cyclomatic complexity (Radon included in CodeClimate)
 
@@ -57,7 +57,7 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     >>> re.findall('as', 'asdma')
     import re as regexorz
     regexorz.findall('am', 'mammma')
-    
+
 ### Assertions
 
     assert 2 > 1
@@ -96,7 +96,16 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
 
 ## Step 7
 
-    python run.py
+    #!/usr/bin/env python
+    import json
+
+    from download import beers
+
+    if __name__ == '__main__':
+        beers = list(beers.find_all())
+        print json.dumps(beers, indent=2, ensure_ascii=False)
+
+> python run.py
 
 ## Step 8
 
@@ -134,11 +143,12 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + Show how imports are organised in __02_ordering_test.py__
 + Show the new version of __01_builtin_assert_test.py__
 + Show how to add a new Test Configuration. Press plus-sign and check all in folder and add
---nocapture
+``--nocapture`
 + Investigate 01_built_in whether it's running in the test. Show that it's not!
 + Show that's it's not showing in an obvious way in the default runner.
 
-    . venv/bin/activate; nosetests tests
+
+     . venv/bin/activate; nosetests tests
 
 + Add the following to setup.cfg
     [nosetests]
