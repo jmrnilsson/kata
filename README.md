@@ -135,3 +135,9 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + Show the new version of __01_builtin_assert_test.py__
 + Show how to add a new Test Configuration. Press plus-sign and check all in folder and add
 --nocapture
++ Investigate 01_built_in whether it's running in the test. Show that it's not!
++ Show that's it's not showing in an obvious way in the default runner.
+
+    . venv/bin/activate; nosetests tests
+
++
