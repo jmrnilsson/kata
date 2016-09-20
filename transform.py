@@ -7,54 +7,43 @@ from xml.etree import ElementTree
 
 
 def make_json():
-    __map = {
-        'supplier': 'Leverantor',
-        'id': 'Artikelid',
-        'name': 'Namn',
-        'name2': 'Namn2',
-        'price': 'Prisinklmoms',
-        'price_per_litre': 'PrisPerLiter',
-        'abv': 'Alkoholhalt'
-    }
-    beers = list(get_xml())
-
-    with open('sb_.json', 'w', 'utf-8') as outfile:
-        columns = __map.keys()
-        rows = [
-            [
-                beer.get(__map[k]) for k in columns
-            ] for beer in beers
-        ]
-        json.dump({'columns': columns, 'rows': rows}, outfile, ensure_ascii=False)
-
-
-def get_xml():
     map_ = {
-        'Leverantor': unicode,
-        'Producent': unicode,
-        'Varugrupp': unicode,
-        'Artikelid': unicode,
-        'Namn': unicode,
-        'Namn2': unicode,
-        'Prisinklmoms': float,
-        'PrisPerLiter': float,
-        'Alkoholhalt': lambda value: float(re.match('[0-9\.]*', value).group(0))
+        'Producent': ['manufacturer', unicode],
+        'Artikelid': ['id', unicode],
+        'Namn': ['name', unicode],
+        'Namn2': ['name_2', unicode],
+        'Prisinklmoms': ['price', float],
+        'PrisPerLiter': ['price_per_litre', float],
+        'Alkoholhalt': ['abv', lambda value: float(re.match('[0-9\.]*', value).group(0))],
+        'Saljstart': ['start', unicode],
+        'Utg\xc3\xa5tt': ['expired', bool]
     }
+
+    keys = map_.keys()
 
     with open(os.path.dirname(os.path.abspath(__file__)) + '/sb.xml', encoding='utf-8') as fp:
         xml = ElementTree.fromstring(fp.read().encode('utf-8'))
 
-        return sorted(
+        rows = sorted(
             [
                 {
-                    k: convert(article.find(k).text) for k, convert in
-                    map_.iteritems()
+                    map_[k][0]: map_[k][1](article.find(k).text) for k in keys
                     if article.find(k) is not None
                 }
                 for article in xml.findall('artikel')
-                if article.find('Varugrupp') is not None and u'\xd6l'
-                in article.find('Varugrupp').text
-            ], key=lambda row: row['PrisPerLiter'])
+                if article.find('Varugrupp') is not None
+                and u'\xd6l' in article.find('Varugrupp').text
+            ], key=lambda r: r['price_per_litre']
+        )
+
+        columns = [map_[k][0] for k in keys]
+        print columns
+
+        rows = [[row.get(k) for k in columns] for row in rows]
+        print rows
+
+        with open('sb_.json', 'w', 'utf-8') as outfile:
+            return json.dump(dict(columns=columns, rows=rows), outfile, ensure_ascii=False)
 
 
 if __name__ == '__main__':
