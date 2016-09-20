@@ -143,5 +143,15 @@ justice. Although it can be done cleanly it's usually less clear than just using
 + Add the following to setup.cfg
     [nosetests]
     verbosity=2
++ Evaluate the output and consider the rewriting the test generator
++ git checkout 3c54ff12b0624f564c57fa1c4cbffd2d53f4199c
 
-## Step 15: Evaluate the output.
+## Step 15: Evaluate the output
++ Show the updated test. New test generator shows which values that are compared.
++ It's also apparent that the first tests doesn't run
++ Make a `ls -la tests`
++ Verify that it's in chmod +x (executable)
++ Amend this with `chmod -x tests/01_builtin_assert_tests.py`
++ `. venv/bin/activate; nosetests tests`
++ http://stackoverflow.com/questions/1457104/nose-unable-to-find-tests-in-ubuntu
++ When ever a script doesn't run as expected it often good to verify it's chmod

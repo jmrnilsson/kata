@@ -8,12 +8,3 @@ def test_beers_exists():
 
     assert len(actual) > 100
     print 'yes, you did it!'
-
-
-def test_check():
-    max_ = 0
-    last = None
-    for b in beers.find_all():
-        max_ = b['price_per_litre'] if b['price_per_litre'] > max_ else max_
-        last = b
-    assert_equal(max_, last['price_per_litre'])
