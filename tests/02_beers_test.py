@@ -1,43 +1,40 @@
 import os
-import requests
-from download import api
 from codecs import open
+
 from mock import Mock
-from nose.tools import assert_greater, assert_equal, assert_less
+from nose.tools import assert_equal, assert_less
+import json
+import requests
+
+from download import api
 
 __get = requests.get
 
 
 def setup():
-    with open(os.path.dirname(os.path.abspath(__file__)) + '/../sb.xml', encoding='utf-8') as fp:
-        requests.get = Mock(return_value=Mock(text=fp.read()))
+    with open(os.path.dirname(os.path.abspath(__file__)) + '/../sb_.json', encoding='utf-8') as fp:
+        rows = json.loads(fp.read().encode('utf-8'))
+        requests.get = Mock(return_value=Mock(json=Mock(return_value=rows)))
 
 
 def teardown():
     requests.get = __get
 
 
-def test_beers_exists():
-    actual = list(api.get_beers())
-
-    assert_greater(len(actual), 100)
-    assert_equal(actual[0]['Varugrupp'], u'\xd6l')
-
-
 def test_beers_in_asc_order_by_price():
     max_ = 0
     last = None
     for b in api.get_beers():
-        max_ = b['PrisPerLiter'] if b['PrisPerLiter'] > max_ else max_
+        max_ = b['price_per_litre'] if b['price_per_litre'] > max_ else max_
         last = b
-    assert_equal(max_, last['PrisPerLiter'])
+    assert_equal(max_, last['price_per_litre'])
 
 
 def test_ensure_lower_priced_come_first():
     actual = list(api.get_beers())
-    yield assert_less_, actual, 'PrisPerLiter', 0, 2
-    yield assert_less_, actual, 'PrisPerLiter', 11, 200
-    yield assert_less_, actual, 'PrisPerLiter', 999, 1000
+    yield assert_less_, actual, 'price_per_litre', 0, 2
+    yield assert_less_, actual, 'price_per_litre', 11, 200
+    yield assert_less_, actual, 'price_per_litre', 999, 1000
 
 
 def assert_less_(actual, key, idx, idx_2):
