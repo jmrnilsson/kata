@@ -13,3 +13,4 @@ ENV/
 README.*
 Makefile
 README.md
+**.tmp
