@@ -8,6 +8,6 @@
 # virtualenv
 venv/
 ENV/
-*._
 
+README.*
 Makefile
