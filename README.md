@@ -32,7 +32,8 @@ http://docs.python-guide.org/en/latest/dev/virtualenvs/
 ## Step 2: REPL, Assertions, Tests
 
 ### REPL
-A read–eval–print loop (REPL), also known as an interactive toplevel or language shell.
+A read–eval–print loop (REPL), also known as an interactive toplevel or language shell. REPL is
+commonly available at `python` or `ipython`.
 
     >>> list([1, 2])
     [1, 2]
@@ -48,6 +49,10 @@ A read–eval–print loop (REPL), also known as an interactive toplevel or lang
     >>> dict({'k': 'andy', 'k2': 2})
     {'k2': 2, 'k': 'andy'}
     >>> dict({'k': 'andy', 'k2': 2})
+
+
+A note on imports in python:
+
     >>> from re import *
     >>> findall('a', 'asdma')
     ['a', 'a']

@@ -30,8 +30,8 @@ def make_json():
                     if article.find(k) is not None
                 }
                 for article in xml.findall('artikel')
-                if article.find('Varugrupp') is not None
-                and u'\xd6l' in article.find('Varugrupp').text
+                if article.find('Varugrupp') is not None and
+                u'\xd6l' in article.find('Varugrupp').text
             ], key=lambda r: r['price_per_litre']
         )
 
