@@ -1,4 +1,8 @@
-#!/usr/bin/env python
+from download import beers
 
-assert 2 < 1
-print 'yes you did it!'
+
+def test_beers_exists():
+    actual = list(beers.find_all())
+
+    assert len(actual) > 100
+    print 'yes, you did it!'
