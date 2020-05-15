@@ -9,8 +9,4 @@
 venv/
 ENV/
 
-**.md
-README.*
-Makefile
-README.md
 **.tmp

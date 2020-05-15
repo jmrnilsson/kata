@@ -1,66 +1,23 @@
 SHELL=bash
 
-.PHONY: 1, master
+.PHONY: 1, 2, 3, 4, 5, 6, 7, master
 
+0:
+	@ git checkout 5f85ba5cda820ecdf91e9cb992107239ba83a359
 1:
-	@ git checkout b735ca61b60e28e06b32f19740481b67b41f645c
-
+	@ git checkout 285440d7b7451bc5f8e9c4ef0754eb793c5b827a
 2:
-	@ git checkout a8a33376b9289a4437eac5424e5627b11f75c8c3
-
-3: 2
-
+	@ git checkout 285440d7b7451bc5f8e9c4ef0754eb793c5b827a
+3:
+	@ git checkout 1a639d1a9dfe3e9dd035c195767065ad9b487f3f
 4:
-	@ git checkout 714b877d8264b4405b875015337ba43c88ed4fbf
-
+	@ git checkout c66c4f7e9992b8c800dd42796b82f334ba56e5a0
 5:
-	@ git checkout 58880ef10bc0551d47686d9fe2aa815c1019fa12
-
+	@ git checkout ade1f7301b8967ec8359e5c9f047af1feada22e6
 6:
-	@ git checkout fc401e40772a53e04c3b4ea055113b82a2b5c65d
-
+	@ git checkout e078ebd7c40395924445d973b4f628426d53e0dc
 7:
-	@ git checkout d0d6e0f81a67a9ae10775ca05e274db39e75d332
-
-9:
-	@ git checkout a3f815ab8b961cfdf338a2650c6672f80bb89963
-
-10:
-	@ git checkout c0a3e8614ca79aaf4939356eaef5540b7bcbdcf4
-
-11:
-	@ git checkout e31547b4236a35fe77d1a63e91b695c470df352f
-
-12:
-	@ git checkout 428404a9bdfd8873ea312ec6a7ea1a065b11d810
-
-
-13:
-	@ git checkout a364ca8407a07fd8785ef4a0fcdaf2d308f368b7
-
-13_2:
-	@ git checkout a9e66d55bfb84396c3e490fbee8b33eae11195fb
-
-14:
-	@ git checkout c84a5b560661b979be35e2d8b4a1647305089b82
-
-16:
-	@ git checkout 6dd393fd023ea281da8c3135da0da02bb76ccf51
-
-17:
-	@ git checkout 63efc6f02bad134c05d9ecf86d9f93a7be26a72d
-
-18:
-	@ git checkout 49d80cb63d592d225a556d83b5fe0a159ca41c12
-
-19:
-	@ git checkout e686ad927fc6143868bd2d4b367e240816ee9813
-
-19_2:
-	@ git checkout 17d79f2be11b4bff10b7b4a5c421f8f9a474252a
-
-20:
-	@ git checkout 19dc53710d4d88cd1daf14c20990a3e18c110ba1
+	@ git checkout d936715e2609c7d9b47aff86da8cc044a9e2a8cb
 
 master:
 	@ git checkout master
