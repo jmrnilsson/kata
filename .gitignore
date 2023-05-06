@@ -1,12 +1,1 @@
-*.py[cod]
-*.xml
-*.json
-
-# dotenv
-.env
-
-# virtualenv
-venv/
-ENV/
-
-**.tmp
+*.tgz
