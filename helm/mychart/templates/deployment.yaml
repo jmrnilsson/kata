@@ -32,6 +32,7 @@ spec:
           - name: DEMO_GREETING
             value: "Hello from the environment"
           name: {{ .Values.global.myValue }}
+          name: {{ .Values.global.otherValue }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

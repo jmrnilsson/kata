@@ -16,11 +16,19 @@ Setting things up: `helm create mychart`
 Cascading of custom values in Helm
 
 ```pwsh
+cd mychart
 helm package mychart
 helm template .\mychart-0.1.0.tgz -f .\myvalues.yaml > deployment-example.yaml
 cat deployment-example.yaml | Select-String -Pattern customValue -Context 1
 #             value: "Below should be a custom value"
 # >           name: customValue
 #             securityContext:
+cd ..
+helm package .\mychart\
+helm template .\mychart-0.1.0.tgz -f .\mychart\myvalues.yaml -f .\otherValues\otherValues.yaml > deployment-example.yaml
+cat .\deployment-example.yaml | Select-String -Pattern parent -Context 1
+#            name: customValue
+#>           name: parentValue
+#            securityContext:
 ```
 
