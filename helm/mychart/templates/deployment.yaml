@@ -29,14 +29,10 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - env:
-          - name: common
-            value: {{ .Values.env.common }}
-          - name: development
-            value: {{ .Values.env.development }}
-          - name: if-anchored
-            value: {{ .Values.env.ifAnchored }}
-          - name: ci-development
-            value: {{ .Values.application.apiThing.env }}
+          - name: myValue
+            value: {{ .Values.env.myValue }}
+          - name: environment
+            value: {{ .Values.env.environment }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

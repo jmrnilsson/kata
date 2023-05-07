@@ -1,0 +1,4 @@
+env:
+  <<: (yaml file="./common.yaml").env
+  environment: "test"
+  replicaCount: 2
