@@ -1,0 +1,10 @@
+{{- $common := .Files.Get "../common.yaml" | fromYaml }}
+
+env:
+  <<: *{{$common.env}}
+  # <<: *env_values
+  # <<: (yaml file="M:\devwork\kata\helm\common.yaml").env
+  # <<: (yaml file="./../common.yaml").env
+  # <<: ../common.yaml
+  # <<: *anchored
+  development: "developmentValue"

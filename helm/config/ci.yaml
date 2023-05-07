@@ -1,0 +1,5 @@
+application:
+  api-thing:
+    env:
+      <<: ./development.yaml
+
