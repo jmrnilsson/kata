@@ -1,5 +1,4 @@
 # Common variables for all except production-like environments
-env: &env_values
+env:
   common: "commonValue"
   development: "commonValue"
-  if-anchored: "commonValue"

@@ -1,7 +1,5 @@
-{{- $common := .Files.Get "../common.yaml" | fromYaml }}
-
 env:
-  <<: *{{$common.env}}
+  "<<": (yaml file="../common.yaml").env
   # <<: *env_values
   # <<: (yaml file="M:\devwork\kata\helm\common.yaml").env
   # <<: (yaml file="./../common.yaml").env

@@ -1,3 +1,0 @@
-env: &anchored-values
-  development: "anchoredValue"
-  if-anchored: "anchoredValue"

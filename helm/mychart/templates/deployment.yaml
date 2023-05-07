@@ -33,10 +33,6 @@ spec:
             value: {{ .Values.env.common }}
           - name: development
             value: {{ .Values.env.development }}
-          - name: if-anchored
-            value: {{ .Values.env.ifAnchored }}
-          - name: ci-development
-            value: {{ .Values.application.apiThing.env }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
