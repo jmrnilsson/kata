@@ -13,22 +13,13 @@ Some experiments in Helm and values and general templating.
 
 Setting things up: `helm create mychart` 
 
-Cascading of custom values in Helm
+Cascading of custom values in Helm. Expecially important in my case was `.\outsideDeeperValues.yaml` which because it's
+outside the chart requires and anchor and is represented at different depths in the same value-file.
 
 ```pwsh
 cd mychart
 helm package mychart
-helm template .\mychart-0.1.0.tgz -f .\myvalues.yaml > deployment-example.yaml
-cat deployment-example.yaml | Select-String -Pattern customValue -Context 1
-#             value: "Below should be a custom value"
-# >           name: customValue
-#             securityContext:
-cd ..
-helm package .\mychart\
-helm template .\mychart-0.1.0.tgz -f .\mychart\myvalues.yaml -f .\otherValues\otherValues.yaml > deployment-example.yaml
-cat .\deployment-example.yaml | Select-String -Pattern parent -Context 1
-#            name: customValue
-#>           name: parentValue
-#            securityContext:
+helm template mychart -f ./mychart/values.yaml -f ./mychart/myvalues.yaml -f .\otherValues\otherValues.yaml -f .\outsideDeeperValues.yaml > .\deployment-example.yaml
+cat .\deployment-example.yaml | Select-String -Pattern value -Context 1
 ```
 

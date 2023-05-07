@@ -1,0 +1,10 @@
+env: &root-values-dev
+  global:
+    deeperValue: "deepyValue"
+  atDifferentDepthValue: "flattedValueByYq"
+
+application:
+  some-ci-stuff:
+    env:
+      <<: *root-values-dev
+

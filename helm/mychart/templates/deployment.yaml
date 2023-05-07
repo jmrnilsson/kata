@@ -31,8 +31,16 @@ spec:
         - env:
           - name: DEMO_GREETING
             value: "Hello from the environment"
-          name: {{ .Values.global.myValue }}
-          name: {{ .Values.global.otherValue }}
+            name: myValue
+            value: {{ .Values.global.myValue }}
+            name: otherValue
+            value: {{ .Values.global.otherValue }}
+            name: deeperValue
+            value: {{ .Values.global.deeperValue }}
+            name: unchangedValue
+            value: {{ .Values.env.unchangedValue }}
+            name: atDifferentDepthValue
+            value: {{ .Values.env.atDifferentDepthValue }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
