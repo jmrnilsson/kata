@@ -81,10 +81,9 @@ tolerations: []
 
 affinity: {}
 
-global:
-  myValue: "defaultValue"
-  deeperValue: "deepButShallowValue"
-
 env:
-  unchangedValue: "defaultValue"
-  atDifferentDepthValue: "defaultValue"
+  default: "defaultValue"
+  common: "defaultValue"
+  development: "defaultValue"
+  configValue: "defaultValue"
+  if-achored: "defaultValue"

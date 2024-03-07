@@ -1,0 +1,4 @@
+# Common variables for all except production-like environments
+env:
+  common: "commonValue"
+  development: "commonValue"

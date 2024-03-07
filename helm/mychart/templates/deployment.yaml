@@ -29,18 +29,10 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - env:
-          - name: DEMO_GREETING
-            value: "Hello from the environment"
-            name: myValue
-            value: {{ .Values.global.myValue }}
-            name: otherValue
-            value: {{ .Values.global.otherValue }}
-            name: deeperValue
-            value: {{ .Values.global.deeperValue }}
-            name: unchangedValue
-            value: {{ .Values.env.unchangedValue }}
-            name: atDifferentDepthValue
-            value: {{ .Values.env.atDifferentDepthValue }}
+          - name: common
+            value: {{ .Values.env.common }}
+          - name: development
+            value: {{ .Values.env.development }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

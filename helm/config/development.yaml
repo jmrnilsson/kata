@@ -1,0 +1,8 @@
+env:
+  "<<": (yaml file="../common.yaml").env
+  # <<: *env_values
+  # <<: (yaml file="M:\devwork\kata\helm\common.yaml").env
+  # <<: (yaml file="./../common.yaml").env
+  # <<: ../common.yaml
+  # <<: *anchored
+  development: "developmentValue"
